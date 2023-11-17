@@ -56,7 +56,7 @@ guix.install <- function (package, profile = NULL, guix = "guix", archive = NULL
     package_path <- paste (unique (c(dirname (scratch), entries)), collapse = ":")
     Sys.setenv (GUIX_PACKAGE_PATH=package_path)
 
-    is_url <- length (grep ("^https?://", package)) > 0
+    is_url <- length (grep ("^https?://|^git@", package)) > 0
 
     if (!is_url) {
         ## The normalized name used by Guix packages
